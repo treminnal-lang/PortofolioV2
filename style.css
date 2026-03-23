@@ -1,0 +1,198 @@
+html {
+  scroll-behavior: smooth;
+}
+
+:root{
+  --main-color: #3D3884;
+  --secondary-color: #A0845F;
+  --aksen-color: #FDFDFE;
+}
+
+body {
+  background: var(--main-color);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh; /*minimal tinggi body nya 1 layar penuh (all device)*/
+  margin: 0;
+  padding-top: 5vw;
+}
+
+.nav-utama {
+  background: rgba(18, 18, 18, 0.8);
+  backdrop-filter: blur(16px);
+  position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 9vw;
+  z-index: 1000;
+  top: 0;
+  padding: 0 4px;
+}
+
+.container-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3vw;
+  font-size: 2.6vw;
+}
+
+.userbar {
+  display: flex;
+  align-items: center;
+  gap: 1.1vw;
+  color: white;
+  font-weight: 800;
+}
+
+.navbar-link {
+  display: flex;
+  justify-content:center;
+  gap: 4vw;
+  padding: 0 10px;
+  list-style: none;
+}
+
+.navbar-link a {
+  text-decoration: none;
+  color: var(--aksen-color);
+  font-weight: 800;
+  font-size: 1.7vw;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-left: 5vw;
+}
+
+.container h1 {
+  /* border: 2px solid #000; */
+  color: var(--aksen-color);
+  font-size: 7vw;
+  margin: 0;
+  margin-top: 1vw;
+  margin-bottom: 0px;
+  line-height: 7vw;
+}
+
+.container p {
+  color: var(--aksen-color);
+  display: left;
+  text-align: justify;
+  margin-right: 20vw;
+  margin-top: 0.4vw;
+  margin-bottom: 0;
+  font-size: 1.7vw;
+  font-weight: 800;
+}
+
+.skill {
+  color: var(--aksen-color);
+  display: flex;
+  font-size: 1vw;
+  gap: 1vw;
+  margin-top: 15.7vw;
+}
+
+.skill h2 {
+  margin: 0;
+  padding: 0.4vw 1vw;
+  /* background: rgba(18, 18, 18, 0.8); */
+  background: black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  border-radius: 20vw;
+}
+
+                    /* list deskripsi detail skill */
+  
+.detail-skill {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3vw 12vw;
+  gap: 5vw;
+  margin-top: 0.2vw;
+}
+
+.list-detail-skill {
+  color: yellow;
+  display: flex;
+  gap: 5vw;
+  list-style: none;
+}
+
+.list-detail-skill a {
+  color: yellow;
+  text-decoration: none;
+  font-size: 2vw;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+                    /* MY SKILL INFORMATION BUTTOM */
+button {
+  padding: 1vw 1.5vw;
+  border-radius: 1vw;
+  border: none;
+  background: black;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 2vw rgba(0, 0, 0, 0.5);
+  font-size: 1.5vw;
+  font-weight: 800;
+}
+
+.content-wrapper {
+  display: flex;
+  gap: 2vw;
+  padding: 1vw 0.2vw;
+  margin: 0 1vw;
+  margin-top: 1vw;
+  font-size: 2vw;
+  color: white;
+  /* box-shadow: 0 4px 6px rgba(0,0,0,0.3); */
+}
+
+.box {
+  /* display: flex;
+  flex-direction: column; */
+  text-align: left;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2vw 2vw;
+  border-radius: 2vw;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: 0.3s;
+  letter-spacing: 1px;
+  display: none;
+}
+
+.box h2 {
+  font-size: 3vw;
+  margin-bottom: 10px;
+  color: yellow; /* Biar kontras */
+}
+
+.box.show {
+  display: block !important;
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Reset P di dalam box biar gak ngikutin margin container utama */
+.box p {
+  margin-right: 0 !important;
+  text-align: justify;
+  font-size: 2vw;
+  line-height: 1.6;
+}
+
+.hide {
+  display: none !important;
+}
