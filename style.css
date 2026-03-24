@@ -1,76 +1,71 @@
-html {
-  scroll-behavior: smooth;
+function filterSkill(kategori) {
+  // Ambil semua elemen dengan class 'box'
+  const semuaBox = document.querySelectorAll('.box');
+
+  semuaBox.forEach(box => {
+    // Sesuaikan dengan nama class di HTML lo: Skill-GraphicDesign, dll.
+    const targetClass = 'Skill-' + kategori;
+
+    if (box.classList.contains(targetClass)) {
+      // Pakai !important di JS buat menangin adu mekanik lawan CSS display: none
+      box.style.setProperty('display', 'block', 'important');
+    } else {
+      box.style.setProperty('display', 'none', 'important');
+    }
+  });
 }
 
-:root{
-  --main-color: #3D3884;
-  --secondary-color: #A0845F;
-  --aksen-color: #FDFDFE;
+// Pastikan fungsi jalan saat pertama kali web dibuka
+window.addEventListener('DOMContentLoaded', () => {
+  filterSkill('GraphicDesign');
+});
+
+
+
+
+
+const txtElement = document.getElementById('typing-wisenx');
+const words = ['Vactual.', 'Tech.', 'Designer.']; // Lo bisa ganti kata-katanya di sini
+let wordIndex = 0;
+let txt = '';
+let isDeleting = false;
+
+function type() {
+  const current = wordIndex % words.length;
+  const fullTxt = words[current];
+
+  // Cek mode hapus atau ngetik
+  if (isDeleting) {
+    txt = fullTxt.substring(0, txt.length - 1);
+  } else {
+    txt = fullTxt.substring(0, txt.length + 1);
+  }
+
+  // Masukkan ke HTML
+  txtElement.innerHTML = txt;
+
+  // Atur kecepatan
+  let typeSpeed = 200; // Kecepatan ngetik
+
+  if (isDeleting) {
+    typeSpeed /= 2; // Hapus lebih cepet (100ms)
+  }
+
+  // Logika balik arah
+  if (!isDeleting && txt === fullTxt) {
+    typeSpeed = 2500; // Diem 2.5 detik pas teks lengkap
+    isDeleting = true;
+  } else if (isDeleting && txt === '') {
+    isDeleting = false;
+    wordIndex++;
+    typeSpeed = 500; // Jeda sebelum ngetik kata baru
+  }
+
+  setTimeout(() => type(), typeSpeed);
 }
 
-body {
-  background: var(--main-color);
-  font-family: 'Inter', sans-serif;
-  min-height: 100vh; /*minimal tinggi body nya 1 layar penuh (all device)*/
-  margin: 0;
-  padding-top: 5vw;
-}
-
-.nav-utama {
-  background: rgba(18, 18, 18, 0.8);
-  backdrop-filter: blur(16px);
-  position: fixed;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 9vw;
-  z-index: 1000;
-  top: 0;
-  padding: 0 4px;
-}
-
-.container-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 3vw;
-  font-size: 2.6vw;
-}
-
-.userbar {
-  display: flex;
-  align-items: center;
-  gap: 1.1vw;
-  color: white;
-  font-weight: 800;
-}
-
-.navbar-link {
-  display: flex;
-  justify-content:center;
-  gap: 4vw;
-  padding: 0 10px;
-  list-style: none;
-}
-
-.navbar-link a {
-  text-decoration: none;
-  color: var(--aksen-color);
-  font-weight: 800;
-  font-size: 1.7vw;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  margin-left: 5vw;
-}
-
-.container h1 {
-  /* border: 2px solid #000; */
-  color: var(--aksen-color);
-  font-size: 7vw;
+// Jalankan pas web kebuka
+document.addEventListener('DOMContentLoaded', type);  font-size: 7vw;
   margin: 0;
   margin-top: 1vw;
   margin-bottom: 0px;
