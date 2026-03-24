@@ -19,3 +19,50 @@ function filterSkill(kategori) {
 window.addEventListener('DOMContentLoaded', () => {
   filterSkill('GraphicDesign');
 });
+
+
+
+
+
+const txtElement = document.getElementById('typing-wisenx');
+const words = ['Vactual.', 'Tech.', 'Designer.']; // Lo bisa ganti kata-katanya di sini
+let wordIndex = 0;
+let txt = '';
+let isDeleting = false;
+
+function type() {
+  const current = wordIndex % words.length;
+  const fullTxt = words[current];
+
+  // Cek mode hapus atau ngetik
+  if (isDeleting) {
+    txt = fullTxt.substring(0, txt.length - 1);
+  } else {
+    txt = fullTxt.substring(0, txt.length + 1);
+  }
+
+  // Masukkan ke HTML
+  txtElement.innerHTML = txt;
+
+  // Atur kecepatan
+  let typeSpeed = 200; // Kecepatan ngetik
+
+  if (isDeleting) {
+    typeSpeed /= 2; // Hapus lebih cepet (100ms)
+  }
+
+  // Logika balik arah
+  if (!isDeleting && txt === fullTxt) {
+    typeSpeed = 2500; // Diem 2.5 detik pas teks lengkap
+    isDeleting = true;
+  } else if (isDeleting && txt === '') {
+    isDeleting = false;
+    wordIndex++;
+    typeSpeed = 500; // Jeda sebelum ngetik kata baru
+  }
+
+  setTimeout(() => type(), typeSpeed);
+}
+
+// Jalankan pas web kebuka
+document.addEventListener('DOMContentLoaded', type);
