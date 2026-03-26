@@ -25,7 +25,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 const txtElement = document.getElementById('typing-wisenx');
-const words = ['Vactual.', 'Tech.', 'Designer.']; // Lo bisa ganti kata-katanya di sini
+const words = ['v2.0']; // Lo bisa ganti kata-katanya di sini
 let wordIndex = 0;
 let txt = '';
 let isDeleting = false;
@@ -53,7 +53,7 @@ function type() {
 
   // Logika balik arah
   if (!isDeleting && txt === fullTxt) {
-    typeSpeed = 2500; // Diem 2.5 detik pas teks lengkap
+    typeSpeed = 3000; // Diem 2.5 detik pas teks lengkap
     isDeleting = true;
   } else if (isDeleting && txt === '') {
     isDeleting = false;
